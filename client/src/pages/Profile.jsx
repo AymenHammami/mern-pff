@@ -18,6 +18,8 @@ export default function Profile() {
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const dispatch = useDispatch();
+
+  
  
 
   // firebase storage
@@ -95,6 +97,7 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
+     
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
