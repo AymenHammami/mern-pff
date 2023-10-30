@@ -31,7 +31,13 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const[selectv,setSelected] = useState(false);
   console.log(formData);
+
+const getSelectedValue=(e)=>{
+  setSelected(e.target.value);
+}
+
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
@@ -164,8 +170,8 @@ export default function CreateListing() {
                     <label className="block text-sm font-medium text-gray-600">Catégorie</label>
                     <select
                         id="categorie"
-                        value={formData.categorie}
-                        onChange={handleChange}
+                        value={formData.selectv}
+                        onChange={getSelectedValue}
                         className="mt-1 p-2 border rounded w-full"
                         required
                     >
@@ -181,58 +187,21 @@ export default function CreateListing() {
                         {/* Add more categories as needed */}
                     </select>
                 </div>
-                phone <input  type="numbre" placeholder=''className=" border  p-3 rounded-lg w-full"  id="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                     />
-               Prix <input  type="numbre" placeholder=''className=" border  p-3 rounded-lg w-full"  id="prix"
+                Prix <input  type="numbre" placeholder=''className=" border  p-3 rounded-lg w-full"  id="prix"
                     required
                     value={formData.prix}
                     onChange={handleChange} 
                     />
              
+                phone <input  type="numbre" placeholder=''className=" border  p-3 rounded-lg w-full"  id="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                     />
+             
                     
                
-<div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-600">Lieu</label>
-                    <select
-                        name="region" id="region"
-                        value={formData.region}
-                        onChange={handleChange}
-                        className="mt-1 p-2 border rounded w-full"
-                        required
-                    >
-                        
-                        <option value="">ariana</option>
-                        <option value="">beja</option>
-                        <option value="">ben arous</option>
-                        <option value="">bizerte</option>
-                        <option value="">gabes</option>
-                        <option value="">gafsa</option>
-                        <option value="">jendouba</option>
-                        <option value="">kairouan</option>
-                        <option value="">kasserine</option>
-                        <option value="">kebili</option>
-                        <option value="">Kef</option>
-                        <option value="">mahdia</option>
-                        <option value="">manouba</option>
-                        <option value="">mednine</option>
-                        <option value="">monastir</option>
-                        <option value="">nabel</option>
-                        <option value="">sfax</option>
-                        <option value="">sidi bouzid</option>
-                        <option value="">siliana</option>
-                        <option value="">sousse</option>
-                        <option value="">tataouine</option>
-                        <option value="">tozeur</option>
-                        <option value="">tunis</option>
-                        <option value="">zaghouan</option>
-                        
 
-                        {/* Add more region as needed */}
-                    </select>
-                </div>
                 <div className='flex flex-col flex-1 gap-4'>
           <p className='font-semibold'>
             Images:
@@ -286,7 +255,45 @@ export default function CreateListing() {
                 </button>
               </div>
             ))}
-                 
+               <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-600">Lieu</label>
+                    <select
+                        name="region" id="region"
+                        value={formData.selectv}
+                        onChange={getSelectedValue}
+                        className="mt-1 p-2 border rounded w-full"
+                        required
+                    >
+                        
+                        <option value="">ariana</option>
+                        <option value="">beja</option>
+                        <option value="">ben arous</option>
+                        <option value="">bizerte</option>
+                        <option value="">gabes</option>
+                        <option value="">gafsa</option>
+                        <option value="">jendouba</option>
+                        <option value="">kairouan</option>
+                        <option value="">kasserine</option>
+                        <option value="">kebili</option>
+                        <option value="">Kef</option>
+                        <option value="">mahdia</option>
+                        <option value="">manouba</option>
+                        <option value="">mednine</option>
+                        <option value="">monastir</option>
+                        <option value="">nabel</option>
+                        <option value="">sfax</option>
+                        <option value="">sidi bouzid</option>
+                        <option value="">siliana</option>
+                        <option value="">sousse</option>
+                        <option value="">tataouine</option>
+                        <option value="">tozeur</option>
+                        <option value="">tunis</option>
+                        <option value="">zaghouan</option>
+                        
+
+                        {/* Add more region as needed */}
+                    </select>
+                </div>  
             <button className='p-3 bg-slate-700 text-white rounded-lg
              uppercase hover:opacity-95 disabled:opacity-80'>
              { loading ? 'Creation..':'Create Listing'}
@@ -294,6 +301,7 @@ export default function CreateListing() {
 {error && <p className='text-red-700  text-sm'>{error}</p>}
           </div>
               {/* end image*/}
+
 
                 </div>
    
