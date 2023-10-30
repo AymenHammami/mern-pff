@@ -9,9 +9,26 @@ const listingSchema = new mongoose.Schema(
             type: String,
             required: true 
         },
-        categorie: {
+        category: {
              type: String, 
-            required: true 
+            required: true,
+            enum: {
+                values:[    
+                    
+                    'animaux',
+                    'emploi',
+                    'enfants',
+                    'immobilier',
+                    'loisir',
+                    'mode',
+                    'multimedia',
+                    'pour la maison',
+                    'sante',
+                    'service',
+                    'vehicules',
+                    'voyage'
+                 ]
+            }
         },
         prix: {
              type: Number, 
@@ -27,7 +44,35 @@ const listingSchema = new mongoose.Schema(
             }, // Store image URLs array bc its more thaan one image
         region: { 
             type: String, 
-            required: true
+            required: true,
+            enum:{
+                values:[
+                    'ariana',
+                    'beja',
+                    'ben arous',
+                    'bizerte',
+                    'gabes',
+                    'gafsa',
+                    'jendouba',
+                    'kairouan',
+                    'kasserine',
+                    'kebili',
+                    'le kef',
+                    'mahdia',
+                    'manouba',
+                    'medenine',
+                    'monastir',
+                    'nabeul',
+                    'sfax',
+                    'sidi bouzid',
+                    'siliana',
+                    'sousse',
+                    'tataouine',
+                    'tozeur',
+                    'tunis',
+                    'zaghouan'
+                ]
+            }
         },
         userRef:{
                 type: String, 
