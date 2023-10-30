@@ -8,3 +8,20 @@ export const createListing = async (req, res, next) => {
       next(error);
     }
   };
+
+  export const getAllCategories = async (req, res, next) => {
+    try {
+        const categories = await Listing.distinct("category");
+        return res.status(200).json({ categories });
+    } catch (error) {
+        next(error);
+    }
+};
+  export const getAllRegions = async (req, res, next) => {
+    try {
+        const regions = await Listing.distinct("region");
+        return res.status(200).json({ regions });
+    } catch (error) {
+        next(error);
+    }
+};
