@@ -31,12 +31,15 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const[selectv,setSelected] = useState(false);
+  const[selectv,setSelected,categorie,region] = useState(false);
   console.log(formData);
 
 const getSelectedValue=(e)=>{
-  setSelected(e.target.value);
-}
+  setFormData({
+    ...formData,
+    selectv: e.target.value
+  });
+};
 
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
@@ -171,11 +174,12 @@ const getSelectedValue=(e)=>{
                     <select
                         id="categorie"
                         value={formData.selectv}
+                        
                         onChange={getSelectedValue}
                         className="mt-1 p-2 border rounded w-full"
                         required
                     >
-                        <option value="">Select Category</option>
+<option value="default">Select Category</option>
                         <option value="voiture">Voitures</option>
                         <option value="immob">Immobilier</option>
                         <option value="meuble">Meubles</option>
@@ -187,13 +191,13 @@ const getSelectedValue=(e)=>{
                         {/* Add more categories as needed */}
                     </select>
                 </div>
-                Prix <input  type="numbre" placeholder=''className=" border  p-3 rounded-lg w-full"  id="prix"
+                Prix <input  type="number" placeholder=''className=" border  p-3 rounded-lg w-full"  id="prix"
                     required
                     value={formData.prix}
                     onChange={handleChange} 
                     />
              
-                phone <input  type="numbre" placeholder=''className=" border  p-3 rounded-lg w-full"  id="phone"
+                phone <input  type="number" placeholder=''className=" border  p-3 rounded-lg w-full"  id="phone"
                     required
                     value={formData.phone}
                     onChange={handleChange}
@@ -264,7 +268,8 @@ const getSelectedValue=(e)=>{
                         className="mt-1 p-2 border rounded w-full"
                         required
                     >
-                        
+                        <option value="default">Region</option>
+
                         <option value="">ariana</option>
                         <option value="">beja</option>
                         <option value="">ben arous</option>
