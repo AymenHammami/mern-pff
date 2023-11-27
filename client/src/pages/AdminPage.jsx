@@ -1,13 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Charts from "../components/Charts";
+import CustomersChart from "../components/CustomersChart";
+import HomeDash from "../components/HomeDash";
 import SidebarDash from "../components/SidebarDash";
 
 export default function AdminPage() {
   return (
-    <div className="flex">
+    <div className=" flex gap-4">
    <SidebarDash />
-   <div className='p-7'>
-          <h1 className='text-2xl font-semibold'>Dashboard result</h1>
-    </div>
+      <div className="flex-col w-full">
+      <HomeDash />
+      <div className="flex-row gap-4 flex pt-7">
+       <Charts />
+       <CustomersChart />
+       </div>
+   </div>
    </div>
   )
 }

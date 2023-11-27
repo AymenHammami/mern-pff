@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FaAngleRight } from "react-icons/fa6";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoMailSharp, IoSearchOutline } from "react-icons/io5";
 import { RiDashboardFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
@@ -38,14 +38,14 @@ export default function AdminPage() {
         ],
       },
     { title: "Analytics", icon: <IoAnalytics /> },
-    { title: "Inbox" },
-    { title: "Profile", spacing:true, icon: <Link to='/profile'><CgProfile /></Link>  },
+    { title: "Inbox", icon: <IoMailSharp /> },
+    { title: "Profile", spacing:true, icon: <Link to={'/profile'}><CgProfile /></Link>  },
     { title: "Settings", icon: <IoSettingsSharp /> },
     { title: "Logout", icon: <IoMdLogOut /> },
   ]; 
 
   return (
-    <div className='flex'>
+    <div>
       <div className={`bg-slate-600 h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} duration-300 relative`}>
           <FaAngleRight className={`bg-white text-slate-700 text-2xl rounded-full absolute -right-3 top-9 border border-slate-700
               cursor-pointer ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}  />
@@ -94,9 +94,7 @@ export default function AdminPage() {
               ))}
           </ul>
       </div>
-      {/* <div className='p-7'>
-          <h1 className='text-2xl font-semibold'>Dashboard result</h1>
-      </div> */}
+      
     </div>
   )
 }
