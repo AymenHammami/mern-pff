@@ -58,6 +58,7 @@ export default function Home() {
         Cozy Corner will help you find your home fast, easy and comfortable.
           <br />
           We have a wide range of properties for you to choose from.
+
         </div>
         <Link
           to={'/search'}
