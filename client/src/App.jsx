@@ -10,6 +10,7 @@ import Profile from "./pages/Profile"
 import Search from "./pages/Search"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
+import Subscription from "./pages/Subscription"
 import UpdateListing from "./pages/UpdateListing"
 
 export default function App() {
@@ -23,6 +24,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path='/search' element={<Search />} />
           <Route path='/listing/:listingId' element={<Listing />} />
+          <Route path='/subscription' element={<Subscription />} />
+          
           <Route  element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/create-listing" element={<CreateListing />} />
